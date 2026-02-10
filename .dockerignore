@@ -1,0 +1,17 @@
+# Backend Dockerfile
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+.venv
+venv
+.env
+node_modules
+frontend/node_modules
+frontend/dist
+backups
+.git
+.gitignore
