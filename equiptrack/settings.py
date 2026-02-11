@@ -59,6 +59,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'equiptrack.wsgi.application'
 
 
+# ===== CONFIGURATION BASE DE DONNÉES =====
+
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
@@ -70,11 +72,11 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
-        },
+        }
     }
 
-}
 
+# Configuration spéciale pour les tests
 if 'test' in sys.argv:
     DATABASES = {
         'default': {
@@ -82,6 +84,7 @@ if 'test' in sys.argv:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -104,8 +107,11 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
